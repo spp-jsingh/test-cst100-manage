@@ -70,3 +70,33 @@ module "ansible_security_group" {
     Environment = var.env_name
   }
 }
+
+module "twingate_security_group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 4"
+
+  name        = "twingate-security-group"
+  description = "security group for Twingate"
+  vpc_id      = module.vpc.vpc_id
+
+  # ingress
+  #ingress_with_cidr_blocks = [
+  #  {
+  #    from_port   = 
+  #    to_port     = 22
+  #    protocol    = "tcp"
+  #    description = "ssh"
+  #    cidr_blocks = var.spp-manage_cidr_block
+  #  },
+  #]
+  # egress
+  egress_with_cidr_blocks = [
+    {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      description = "Allow outbound"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+} 
