@@ -70,3 +70,20 @@ variable "deploy-public-key" {
   description = "default deployment ssh public key for ec2 instance"
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPYfrasy/6vbTsleadFk9dwNyn3dCItnNjdA2sYaDA2B spp-deploy"
 }
+
+variable "deploy-public-key" {
+  description = "default deployment ssh public key for ec2 instance"
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPYfrasy/6vbTsleadFk9dwNyn3dCItnNjdA2sYaDA2B spp-deploy"
+}
+
+variable "twingate-network" {
+  default = "cst1000-manage"
+}
+
+variable "twingate-connector-name" {
+  default = "cst1000-manage"
+}
+
+variable "twingate-client-id" {
+  default = "spp"
+}
