@@ -1,19 +1,23 @@
 output "security-group" {
-  value = ["$${module.*_security_group}"]
+  value = module.jumpbox_security_group
 }
 
-output "vpc-splunk" {
+#output "vpc-splunk" {
+#value = module.vpc
+#}
+
+output "eip_id" {
   value = module.vpc
 }
 
-output "ec2-instance" {
-  value = ["$${module.*_ec2_instance}"]
-}
-
 output "public_ip" {
-  value = ["$${module.*_ec2_instance.public_ip}"]
+  value = module.jumpbox.public_ip
 }
 
 output "private_ip" {
-  value = ["$${module.*_ec2_instance.private_ip}"]
+  value = module.jumpbox.private_ip
+}
+
+output "nat_public_ips" {
+  value = module.vpc
 }
